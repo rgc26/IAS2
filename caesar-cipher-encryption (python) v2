@@ -1,0 +1,21 @@
+def caesar_encrypt(plaintext, shift):
+    result = ""
+    
+    for char in plaintext:
+        if char.isalpha():
+            # Determine whether the character is uppercase or lowercase
+            if char.isupper():
+                result += chr((ord(char) + shift - 65) % 26 + 65)
+            else:
+                result += chr((ord(char) + shift - 97) % 26 + 97)
+        else:
+            result += char
+    
+    return result
+
+plaintext = " "
+
+# Print all possible encrypted values
+for shift in range(26):
+    ciphertext = caesar_encrypt(plaintext, shift)
+    print(f"Shift {shift}: {ciphertext}")
